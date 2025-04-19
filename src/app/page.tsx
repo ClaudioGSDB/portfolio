@@ -10,6 +10,7 @@ import {
 	Briefcase,
 	Github,
 	Linkedin,
+	Phone,
 } from "lucide-react";
 import Image from "next/image";
 
@@ -22,7 +23,7 @@ const Portfolio = () => {
 		// Function to check if an element is in viewport
 		const isInViewport = (element: Element) => {
 			const rect = element.getBoundingClientRect();
-			return rect.top <= window.innerHeight * 0.8 && rect.bottom >= 0;
+			return rect.top <= window.innerHeight * 0.9 && rect.bottom >= 0;
 		};
 
 		// Function to handle scroll event
@@ -234,26 +235,22 @@ const Portfolio = () => {
 	return (
 		<div className="bg-white min-h-screen font-sans text-gray-800 relative overflow-hidden">
 			{/* Google-themed animated decorations */}
-			<div className="absolute top-20 right-10 w-16 h-16 rounded-full border-4 border-blue-500 opacity-30 animate-[spin_15s_linear_infinite]"></div>
-			<div className="absolute top-40 right-20 w-32 h-32 rounded-full border-4 border-red-500 opacity-20 animate-[spin_20s_linear_infinite_reverse]"></div>
-			<div className="absolute bottom-20 right-10 w-20 h-20 rounded-full border-4 border-yellow-500 opacity-25 animate-[bounce_8s_ease-in-out_infinite]"></div>
-			<div className="absolute top-1/3 -left-10 w-40 h-40 rounded-full border-4 border-green-500 opacity-20 animate-[spin_25s_linear_infinite]"></div>
-			<div className="absolute bottom-1/4 left-1/4 w-24 h-24 rounded-full border-4 border-red-500 opacity-10 animate-[ping_7s_ease-in-out_infinite]"></div>
-			<div className="absolute top-2/3 right-1/3 w-16 h-16 border-4 border-green-500 opacity-20 animate-[ping_10s_ease-in-out_infinite]"></div>
+			<div className="absolute top-20 right-10 w-16 h-16 rounded-full border-4 border-blue-500 opacity-70"></div>
+			<div className="absolute top-40 right-20 w-32 h-32 rounded-full border-4 border-red-500 opacity-70"></div>
 
 			{/* Sidebar for larger screens */}
-			<aside className="hidden lg:block fixed left-0 top-0 bottom-0 w-64 bg-white shadow-md p-8 z-10">
+			<aside className="hidden lg:block fixed left-0 top-0 bottom-0 w-64 bg-white shadow-md p-6 z-10 border-r border-gray-200">
 				<div className="h-full flex flex-col">
 					<div className="mb-8">
 						<h1 className="text-2xl font-bold text-gray-900">Claudio</h1>
 						<p className="text-gray-600 mt-1">Full Stack Developer</p>
 					</div>
 
-					<div className="mb-8">
+					<div className="mb-4 border-b border-gray-200 pb-4">
 						<h3 className="text-sm uppercase text-gray-500 mb-3 tracking-wide">
 							Connect
 						</h3>
-						<div className="space-y-3">
+						<div>
 							<a
 								href="https://github.com/claudioGSDB"
 								target="_blank"
@@ -269,8 +266,12 @@ const Portfolio = () => {
 								rel="noopener noreferrer"
 								className="flex items-center gap-2 text-sm text-gray-700 hover:text-blue-500 hover:bg-blue-50 p-2 rounded-md transition-colors"
 							>
-								<Briefcase size={16} />
+								<Linkedin size={16} />
 								<span>LinkedIn</span>
+							</a>
+							<a className="flex items-center gap-2 text-sm text-gray-700 hover:text-blue-500 hover:bg-blue-50 p-2 rounded-md transition-colors">
+								<Phone size={16} />
+								(786)-606-1994
 							</a>
 							<a
 								href="mailto:claudioGSDB@gmail.com"
@@ -279,36 +280,52 @@ const Portfolio = () => {
 								className="flex items-center gap-2 text-sm text-gray-700 hover:text-blue-500 hover:bg-blue-50 p-2 rounded-md transition-colors"
 							>
 								<Mail size={16} />
-								<span>Email</span>
+								<span>claudiogsdb@gmail.com</span>
 							</a>
 						</div>
 					</div>
 
-					<nav className="space-y-4">
-						<a
-							href="#about"
-							className="block hover:text-blue-500 hover:bg-gray-100 p-2 rounded-md text-gray-600 transition-colors"
+					<nav>
+						<button
+							onClick={() => {
+								document
+									.getElementById("about")
+									?.scrollIntoView({ behavior: "smooth" });
+							}}
+							className="w-full text-left block p-2 rounded-md text-gray-600 hover:text-blue-500 hover:bg-gray-100 transition-colors"
 						>
 							About
-						</a>
-						<a
-							href="#skills"
-							className="block hover:text-blue-500 hover:bg-gray-100 p-2 rounded-md text-gray-600 transition-colors"
+						</button>
+						<button
+							onClick={() => {
+								document
+									.getElementById("skills")
+									?.scrollIntoView({ behavior: "smooth" });
+							}}
+							className="w-full text-left block p-2 rounded-md text-gray-600 hover:text-blue-500 hover:bg-gray-100 transition-colors"
 						>
 							Skills
-						</a>
-						<a
-							href="#experience"
-							className="block hover:text-blue-500 hover:bg-gray-100 p-2 rounded-md text-gray-600 transition-colors"
+						</button>
+						<button
+							onClick={() => {
+								document
+									.getElementById("experience")
+									?.scrollIntoView({ behavior: "smooth" });
+							}}
+							className="w-full text-left block p-2 rounded-md text-gray-600 hover:text-blue-500 hover:bg-gray-100 transition-colors"
 						>
 							Experience
-						</a>
-						<a
-							href="#projects"
-							className="block hover:text-blue-500 hover:bg-gray-100 p-2 rounded-md text-gray-600 transition-colors"
+						</button>
+						<button
+							onClick={() => {
+								document
+									.getElementById("projects")
+									?.scrollIntoView({ behavior: "smooth" });
+							}}
+							className="w-full text-left block p-2 rounded-md text-gray-600 hover:text-blue-500 hover:bg-gray-100 transition-colors"
 						>
 							Projects
-						</a>
+						</button>
 					</nav>
 				</div>
 			</aside>
@@ -317,14 +334,17 @@ const Portfolio = () => {
 			<header className="lg:hidden sticky top-0 bg-white shadow-sm z-50 p-4">
 				<div className="flex justify-between items-center">
 					<h1 className="text-xl font-bold text-gray-900">Claudio</h1>
-					<button onClick={toggleMenu} className="text-gray-700">
+					<button
+						onClick={toggleMenu}
+						className="text-gray-700 p-1 hover:text-blue-500 transition-colors"
+					>
 						{menuOpen ? <X size={24} /> : <Menu size={24} />}
 					</button>
 				</div>
 
 				{/* Mobile menu */}
 				{menuOpen && (
-					<div className="fixed inset-0 bg-white z-40 pt-16">
+					<div className="fixed inset-0 bg-white z-40 pt-16 animate-fadeIn">
 						<nav className="container mx-auto px-4 py-8 flex flex-col space-y-6">
 							<div className="mb-8">
 								<h3 className="text-sm uppercase text-gray-500 mb-4 tracking-wide">
@@ -332,7 +352,7 @@ const Portfolio = () => {
 								</h3>
 								<div className="flex flex-col space-y-4">
 									<a
-										href="https://github.com/yourusername"
+										href="https://github.com/claudioGSDB"
 										target="_blank"
 										rel="noopener noreferrer"
 										className="flex items-center gap-2 text-gray-700 hover:text-blue-500 hover:bg-blue-50 p-2 rounded-md transition-colors"
@@ -341,16 +361,16 @@ const Portfolio = () => {
 										<span>GitHub</span>
 									</a>
 									<a
-										href="https://linkedin.com/in/yourusername"
+										href="https://www.linkedin.com/in/claudiosciotto/"
 										target="_blank"
 										rel="noopener noreferrer"
 										className="flex items-center gap-2 text-gray-700 hover:text-blue-500 hover:bg-blue-50 p-2 rounded-md transition-colors"
 									>
-										<Briefcase size={18} />
+										<Linkedin size={18} />
 										<span>LinkedIn</span>
 									</a>
 									<a
-										href="mailto:your.email@example.com"
+										href="mailto:claudioGSDB@gmail.com"
 										target="_blank"
 										rel="noopener noreferrer"
 										className="flex items-center gap-2 text-gray-700 hover:text-blue-500 hover:bg-blue-50 p-2 rounded-md transition-colors"
@@ -362,42 +382,74 @@ const Portfolio = () => {
 							</div>
 
 							<div className="pt-4 border-t">
-								<a
-									href="#about"
-									onClick={toggleMenu}
-									className="block py-2 text-gray-800 hover:text-blue-500 hover:bg-gray-100 p-2 rounded-md transition-colors"
+								<button
+									onClick={() => {
+										document
+											.getElementById("about")
+											?.scrollIntoView({ behavior: "smooth" });
+										setMenuOpen(false);
+									}}
+									className="w-full text-left block py-2 px-2 text-gray-800 hover:text-blue-500 hover:bg-gray-100 rounded-md transition-colors"
 								>
 									About
-								</a>
-								<a
-									href="#skills"
-									onClick={toggleMenu}
-									className="block py-2 text-gray-800 hover:text-blue-500 hover:bg-gray-100 p-2 rounded-md transition-colors"
+								</button>
+								<button
+									onClick={() => {
+										document
+											.getElementById("skills")
+											?.scrollIntoView({ behavior: "smooth" });
+										setMenuOpen(false);
+									}}
+									className="w-full text-left block py-2 px-2 text-gray-800 hover:text-blue-500 hover:bg-gray-100 rounded-md transition-colors mt-2"
 								>
 									Skills
-								</a>
-								<a
-									href="#experience"
-									onClick={toggleMenu}
-									className="block py-2 text-gray-800 hover:text-blue-500 hover:bg-gray-100 p-2 rounded-md transition-colors"
+								</button>
+								<button
+									onClick={() => {
+										document
+											.getElementById("experience")
+											?.scrollIntoView({ behavior: "smooth" });
+										setMenuOpen(false);
+									}}
+									className="w-full text-left block py-2 px-2 text-gray-800 hover:text-blue-500 hover:bg-gray-100 rounded-md transition-colors mt-2"
 								>
 									Experience
-								</a>
-								<a
-									href="#projects"
-									onClick={toggleMenu}
-									className="block py-2 text-gray-800 hover:text-blue-500 hover:bg-gray-100 p-2 rounded-md transition-colors"
+								</button>
+								<button
+									onClick={() => {
+										document
+											.getElementById("projects")
+											?.scrollIntoView({ behavior: "smooth" });
+										setMenuOpen(false);
+									}}
+									className="w-full text-left block py-2 px-2 text-gray-800 hover:text-blue-500 hover:bg-gray-100 rounded-md transition-colors mt-2"
 								>
 									Projects
-								</a>
+								</button>
 							</div>
 						</nav>
 					</div>
 				)}
 			</header>
 
+			{/* Add fadeIn animation */}
+			<style jsx global>{`
+				@keyframes fadeIn {
+					from {
+						opacity: 0;
+					}
+					to {
+						opacity: 1;
+					}
+				}
+
+				.animate-fadeIn {
+					animation: fadeIn 0.3s forwards;
+				}
+			`}</style>
+
 			{/* Main content */}
-			<main className="lg:pl-64 relative z-10">
+			<main className="lg:pl-64 relative">
 				{/* Hero/About section */}
 				<section id="about" className=" py-10 md:py-20 lg:py-20 relative">
 					<div className="container mx-auto px-4 md:px-8 lg:px-16">
@@ -478,11 +530,6 @@ const Portfolio = () => {
 											left: "8px",
 										}}
 									></div>
-									{/* Google-like design elements */}
-									{/* <div className="absolute -right-10 bottom-0 w-24 h-24 rounded-full border-4 border-red-500 opacity-30"></div>
-									<div className="absolute -left-5 top-10 w-16 h-16 rounded-full border-4 border-blue-500 opacity-30"></div>
-									<div className="absolute right-20 top-5 w-10 h-32 rounded-full border-4 border-green-500 opacity-30"></div>
-									<div className="absolute left-10 bottom-10 w-32 h-10 rounded-full border-4 border-yellow-500 opacity-30"></div> */}
 								</div>
 							</div>
 						</div>
@@ -498,7 +545,7 @@ const Portfolio = () => {
 							style={{
 								transform: animatedElements["skills-title"]
 									? "translateY(0)"
-									: "translateY(20px)",
+									: "translateY(10px)",
 								opacity: animatedElements["skills-title"] ? 1 : 0,
 								transition: "all 0.4s ease-out",
 							}}
@@ -542,7 +589,7 @@ const Portfolio = () => {
 									? "translateY(0)"
 									: "translateY(20px)",
 								opacity: animatedElements["skills-content"] ? 1 : 0,
-								transition: "all 0.6s ease-out 0.2s",
+								transition: "all 0.5s ease-out 0.2s",
 							}}
 						>
 							{techSkills[activeTab].map((tech: string) => (
@@ -586,11 +633,11 @@ const Portfolio = () => {
 									style={{
 										transform: animatedElements[`experience-${index}`]
 											? "translateX(0)"
-											: "translateX(-20px)",
+											: "translateX(-40px)",
 										opacity: animatedElements[`experience-${index}`]
 											? 1
 											: 0,
-										transition: `all 0.6s ease-out ${
+										transition: `all 0.5s ease-out ${
 											0.1 * (index + 1)
 										}s`,
 									}}
@@ -757,14 +804,11 @@ const Portfolio = () => {
 							<p className="text-gray-600">
 								© {new Date().getFullYear()} Claudio
 							</p>
-							<p className="text-gray-500 text-sm mt-1">
-								Made with Next.js & Tailwind CSS
-							</p>
 						</div>
 
 						<div className="flex space-x-4">
 							<a
-								href="https://github.com/yourusername"
+								href="https://github.com/claudioGSDB"
 								target="_blank"
 								rel="noopener noreferrer"
 								className="text-gray-600 hover:text-blue-500 transition-colors hover:scale-110 transform duration-300"
@@ -773,22 +817,29 @@ const Portfolio = () => {
 								<Github size={20} />
 							</a>
 							<a
-								href="https://linkedin.com/in/yourusername"
+								href="https://www.linkedin.com/in/claudiosciotto/"
 								target="_blank"
 								rel="noopener noreferrer"
 								className="text-gray-600 hover:text-blue-500 transition-colors hover:scale-110 transform duration-300"
 								aria-label="LinkedIn"
 							>
-								<Briefcase size={20} />
+								<Linkedin size={20} />
 							</a>
 							<a
-								href="mailto:your.email@example.com"
 								target="_blank"
 								rel="noopener noreferrer"
 								className="text-gray-600 hover:text-blue-500 transition-colors hover:scale-110 transform duration-300"
 								aria-label="Email"
 							>
-								<Mail size={20} />
+								claudiogsdb@gmail.com
+							</a>
+							<a
+								target="_blank"
+								rel="noopener noreferrer"
+								className="text-gray-600 hover:text-blue-500 transition-colors hover:scale-110 transform duration-300"
+								aria-label="Email"
+							>
+								(786)-606-1994
 							</a>
 						</div>
 					</div>
