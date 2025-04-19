@@ -1,7 +1,16 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Mail, ExternalLink, Menu, X, ArrowRight, Briefcase, Github } from "lucide-react";
+import {
+	Mail,
+	ExternalLink,
+	Menu,
+	X,
+	ArrowRight,
+	Briefcase,
+	Github,
+	Linkedin,
+} from "lucide-react";
 import Image from "next/image";
 
 const Portfolio = () => {
@@ -49,16 +58,6 @@ const Portfolio = () => {
 		setMenuOpen(!menuOpen);
 	};
 
-	const socials = [
-		{ name: "GitHub", url: "https://github.com/yourusername", icon: Github },
-		{
-			name: "LinkedIn",
-			url: "https://linkedin.com/in/yourusername",
-			icon: Briefcase,
-		},
-		{ name: "Email", url: "mailto:your.email@example.com", icon: Mail },
-	];
-
 	const techCategories = [
 		{ id: "languages", name: "Languages" },
 		{ id: "frontend", name: "Frontend" },
@@ -100,30 +99,67 @@ const Portfolio = () => {
 		],
 	};
 
+	type Job = {
+		company: string;
+		position: string;
+		period: string;
+		description: string;
+		technologies: string[];
+		website?: string; // Optional website URL
+	};
+
 	const experience = [
 		{
-			company: "Tech Innovators Inc.",
-			position: "Senior Full Stack Developer",
-			period: "Jan 2022 - Present",
-			description:
-				"Leading development of microservices architecture, implementing CI/CD pipelines, and mentoring junior developers.",
-			technologies: ["React", "Node.js", "AWS", "MongoDB"],
-		},
-		{
-			company: "Digital Solutions LLC",
+			company: "Society of PC Building (SPCB) - University of Florida",
 			position: "Full Stack Developer",
-			period: "Mar 2019 - Dec 2021",
+			period: "Nov 2023 - Present",
 			description:
-				"Built responsive web applications, developed RESTful APIs, and improved application performance by 40%.",
-			technologies: ["JavaScript", "Express", "PostgreSQL", "Redux"],
+				"• Leading development of SPCB's flagship website using Next.js and Firebase.\n" +
+				"• Engineered full backend infrastructure with RESTful API operations, admin authentication, and dynamic routing.\n" +
+				"• Established CI/CD workflows using GitHub Actions and led bi-weekly sprints for a 3-dev team.\n" +
+				"• Mentored two freshmen in full-stack fundamentals and software engineering basics.",
+			technologies: [
+				"Next.js",
+				"TypeScript",
+				"Firebase",
+				"TailwindCSS",
+				"GitHub Actions",
+				"Vercel",
+			],
+			website: "https://spcbatuf.org",
 		},
 		{
-			company: "WebCreators Studio",
-			position: "Frontend Developer",
-			period: "Jun 2017 - Feb 2019",
+			company: "Samsung Austin Semiconductor",
+			position: "Software Engineering Intern",
+			period: "May 2024 - Aug 2024",
 			description:
-				"Created interactive user interfaces and collaborated with designers to implement pixel-perfect designs.",
-			technologies: ["HTML/CSS", "JavaScript", "React", "SASS"],
+				"• Spearheaded a Vue dashboard initiative across 3 teams to automate trend analysis, cutting machine response time by 40%.\n" +
+				"• Processed 300K+ rows of training data to generate weekly reports, reducing report creation time from 4 hours to 15 minutes.\n" +
+				"• Automated supervisor reporting workflows, saving 8 hours/week in manual data entry.\n" +
+				"• Boosted training compliance by 20% with a reminder system impacting 500+ employees.",
+			technologies: [
+				"Python",
+				"JavaScript",
+				"Vue.js",
+				"FastAPI",
+				"Pandas",
+				"Streamlit",
+			],
+		},
+		{
+			company: "Society of PC Building (SPCB) - University of Florida",
+			position: "Event Coordinator",
+			period: "Nov 2023 - Present",
+			description:
+				"• Organized and hosted high-engagement General Body Meetings (GBMs) with 200+ attendees.\n" +
+				"• Secured $34,000 per semester in funding through technical proposals to UF Student Government.\n" +
+				"• Drove a 216% increase in club membership (from 300 to 100) through enhanced digital engagement and promotional efforts.",
+			technologies: [
+				"Public Speaking",
+				"Event Planning",
+				"Technical Proposals",
+				"Leadership",
+			],
 		},
 	];
 
@@ -155,7 +191,7 @@ const Portfolio = () => {
 	];
 
 	return (
-		<div className="bg-gray-50 min-h-screen font-sans text-gray-800 relative overflow-hidden">
+		<div className="bg-white min-h-screen font-sans text-gray-800 relative overflow-hidden">
 			{/* Google-themed animated decorations */}
 			<div className="absolute top-20 right-10 w-16 h-16 rounded-full border-4 border-blue-500 opacity-30 animate-[spin_15s_linear_infinite]"></div>
 			<div className="absolute top-40 right-20 w-32 h-32 rounded-full border-4 border-red-500 opacity-20 animate-[spin_20s_linear_infinite_reverse]"></div>
@@ -163,10 +199,6 @@ const Portfolio = () => {
 			<div className="absolute top-1/3 -left-10 w-40 h-40 rounded-full border-4 border-green-500 opacity-20 animate-[spin_25s_linear_infinite]"></div>
 			<div className="absolute bottom-1/4 left-1/4 w-24 h-24 rounded-full border-4 border-red-500 opacity-10 animate-[ping_7s_ease-in-out_infinite]"></div>
 			<div className="absolute top-2/3 right-1/3 w-16 h-16 border-4 border-green-500 opacity-20 animate-[ping_10s_ease-in-out_infinite]"></div>
-
-			{/* Colored line accents */}
-			<div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-red-500 to-yellow-500"></div>
-			<div className="absolute top-0 right-0 w-1 h-full bg-gradient-to-b from-green-500 via-yellow-500 to-blue-500 opacity-50"></div>
 
 			{/* Sidebar for larger screens */}
 			<aside className="hidden lg:block fixed left-0 top-0 bottom-0 w-64 bg-white shadow-md p-8 z-10">
@@ -182,7 +214,7 @@ const Portfolio = () => {
 						</h3>
 						<div className="space-y-3">
 							<a
-								href="https://github.com/yourusername"
+								href="https://github.com/claudioGSDB"
 								target="_blank"
 								rel="noopener noreferrer"
 								className="flex items-center gap-2 text-sm text-gray-700 hover:text-blue-500 hover:bg-blue-50 p-2 rounded-md transition-colors"
@@ -191,7 +223,7 @@ const Portfolio = () => {
 								<span>GitHub</span>
 							</a>
 							<a
-								href="https://linkedin.com/in/yourusername"
+								href="https://www.linkedin.com/in/claudiosciotto/"
 								target="_blank"
 								rel="noopener noreferrer"
 								className="flex items-center gap-2 text-sm text-gray-700 hover:text-blue-500 hover:bg-blue-50 p-2 rounded-md transition-colors"
@@ -200,7 +232,7 @@ const Portfolio = () => {
 								<span>LinkedIn</span>
 							</a>
 							<a
-								href="mailto:your.email@example.com"
+								href="mailto:claudioGSDB@gmail.com"
 								target="_blank"
 								rel="noopener noreferrer"
 								className="flex items-center gap-2 text-sm text-gray-700 hover:text-blue-500 hover:bg-blue-50 p-2 rounded-md transition-colors"
@@ -326,7 +358,7 @@ const Portfolio = () => {
 			{/* Main content */}
 			<main className="lg:pl-64 relative z-10">
 				{/* Hero/About section */}
-				<section id="about" className="bg-white py-20 md:py-28 lg:py-32 relative">
+				<section id="about" className=" py-10 md:py-20 lg:py-20 relative">
 					<div className="container mx-auto px-4 md:px-8 lg:px-16">
 						<div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 							<div
@@ -349,24 +381,23 @@ const Portfolio = () => {
 								<p className="text-lg text-gray-600 uppercase tracking-wide mb-4">
 									FULL-STACK DEVELOPER
 								</p>
-								<p className="text-gray-700 mb-4">
-									Italian programmer living in Valencia, Spain 🇪🇸
-								</p>
 								<div className="prose prose-lg text-gray-700 my-6 max-w-2xl">
 									<p>
-										I'm a passionate developer with over 5 years of
-										experience building innovative web applications.
-										My journey started in Rome, where I earned my
-										Computer Science degree, before moving to Valencia
-										to join a thriving tech community.
+										I am a passionate full-stack developer with over 5
+										years of experience in building web applications
+										that not only look good but also perform well. I
+										believe in writing clean, maintainable code and
+										using the latest technologies to deliver the best
+										results for my clients.
 									</p>
+									<br></br>
 									<p>
-										I specialize in creating robust full-stack
-										solutions using React, Node.js, and modern cloud
-										technologies. When I'm not coding, you'll find me
-										exploring Spanish cuisine, hiking in the
-										mountains, or contributing to open-source projects
-										that make a difference.
+										My drive lies in crafting full-stack solutions
+										with React, Node.js, and modern cloud technologies
+										that actually matter to people. I'm obsessed with
+										the little details others might miss and deeply
+										committed to understanding the humans behind the
+										screens.
 									</p>
 								</div>
 								<a
@@ -385,23 +416,32 @@ const Portfolio = () => {
 										? "translateX(0)"
 										: "translateX(30px)",
 									opacity: animatedElements["hero-image"] ? 1 : 0,
-									transition: "all 0.8s ease-out",
+									transition: "all 0.2s ease-out",
 								}}
 							>
-								<div className="relative rounded-2xl overflow-hidden shadow-xl mx-auto max-w-md">
+								<div className="relative rounded-2xl mx-auto max-w-md">
 									<Image
-										src="/next/image/me.png"
+										src="/me.png"
 										alt="Claudio - Full Stack Developer"
 										width={500}
 										height={500}
-										className="w-full h-auto object-cover"
+										className="w-full h-auto object-cover rounded-2xl"
 										priority
 									/>
+									<div
+										className="absolute -z-10 rounded-2xl bg-black/80"
+										style={{
+											top: "8px",
+											right: "-15px",
+											bottom: "-15px",
+											left: "8px",
+										}}
+									></div>
 									{/* Google-like design elements */}
-									<div className="absolute -right-10 bottom-0 w-24 h-24 rounded-full border-4 border-red-500 opacity-30"></div>
+									{/* <div className="absolute -right-10 bottom-0 w-24 h-24 rounded-full border-4 border-red-500 opacity-30"></div>
 									<div className="absolute -left-5 top-10 w-16 h-16 rounded-full border-4 border-blue-500 opacity-30"></div>
 									<div className="absolute right-20 top-5 w-10 h-32 rounded-full border-4 border-green-500 opacity-30"></div>
-									<div className="absolute left-10 bottom-10 w-32 h-10 rounded-full border-4 border-yellow-500 opacity-30"></div>
+									<div className="absolute left-10 bottom-10 w-32 h-10 rounded-full border-4 border-yellow-500 opacity-30"></div> */}
 								</div>
 							</div>
 						</div>
@@ -409,7 +449,7 @@ const Portfolio = () => {
 				</section>
 
 				{/* Skills section */}
-				<section id="skills" className="py-16 md:py-20">
+				<section id="skills" className="py-16 md:py-10 border-t border-gray-200">
 					<div className="container mx-auto px-4 md:px-8 lg:px-16">
 						<h2
 							className="text-2xl font-bold text-gray-900 mb-6 animate-on-scroll"
@@ -419,7 +459,7 @@ const Portfolio = () => {
 									? "translateY(0)"
 									: "translateY(20px)",
 								opacity: animatedElements["skills-title"] ? 1 : 0,
-								transition: "all 0.6s ease-out",
+								transition: "all 0.4s ease-out",
 							}}
 						>
 							Skills & Technologies
@@ -497,7 +537,7 @@ const Portfolio = () => {
 							{experience.map((job, index) => (
 								<div
 									key={index}
-									className="relative pl-8 border-l-2 border-gray-200 hover:border-blue-500 transition-colors duration-300 animate-on-scroll"
+									className="whitespace-pre-line relative pl-8 border-l-2 border-gray-200 hover:border-blue-500 transition-colors duration-300 animate-on-scroll"
 									data-id={`experience-${index}`}
 									style={{
 										transform: animatedElements[`experience-${index}`]
@@ -515,7 +555,24 @@ const Portfolio = () => {
 									<div>
 										<h3 className="text-xl font-bold text-gray-900">
 											{job.position}
+											{job.website && (
+												<a
+													href={job.website}
+													target="_blank"
+													rel="noopener noreferrer"
+													className="ml-2 inline-flex items-center gap-1 text-sm bg-blue-50 hover:bg-blue-100 text-blue-600 hover:text-blue-800 px-2 py-0.5 rounded-md transition-all duration-200 group"
+												>
+													<ExternalLink
+														size={12}
+														className="group-hover:translate-x-0.5 transition-transform"
+													/>
+													<span className="font-medium">
+														Website
+													</span>
+												</a>
+											)}
 										</h3>
+
 										<div className="flex flex-col sm:flex-row sm:items-center gap-2 text-gray-600 mt-1 mb-3">
 											<span className="font-medium">
 												{job.company}
@@ -523,6 +580,7 @@ const Portfolio = () => {
 											<span className="hidden sm:block text-gray-400">
 												•
 											</span>
+
 											<span>{job.period}</span>
 										</div>
 										<p className="text-gray-700">{job.description}</p>
