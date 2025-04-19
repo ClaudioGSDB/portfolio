@@ -344,7 +344,7 @@ const Portfolio = () => {
 
 				{/* Mobile menu */}
 				{menuOpen && (
-					<div className="fixed inset-0 bg-white z-40 pt-16 animate-fadeIn">
+					<div className="fixed top-0 left-0 right-0 bottom-0 bg-white mt-14 animate-fadeIn">
 						<nav className="container mx-auto px-4 py-8 flex flex-col space-y-6">
 							<div className="mb-8">
 								<h3 className="text-sm uppercase text-gray-500 mb-4 tracking-wide">
@@ -432,22 +432,6 @@ const Portfolio = () => {
 				)}
 			</header>
 
-			{/* Add fadeIn animation */}
-			<style jsx global>{`
-				@keyframes fadeIn {
-					from {
-						opacity: 0;
-					}
-					to {
-						opacity: 1;
-					}
-				}
-
-				.animate-fadeIn {
-					animation: fadeIn 0.3s forwards;
-				}
-			`}</style>
-
 			{/* Main content */}
 			<main className="lg:pl-64 relative">
 				{/* Hero/About section */}
@@ -494,7 +478,7 @@ const Portfolio = () => {
 									</p>
 								</div>
 								<a
-									href="/resume.pdf"
+									href="/Resume.pdf"
 									target="_blank"
 									className="inline-flex items-center gap-2 px-6 py-3 bg-yellow-500 text-white rounded-full hover:bg-yellow-600 transition-colors font-medium hover:shadow-md"
 								>
@@ -716,7 +700,7 @@ const Portfolio = () => {
 							{projects.map((project, index) => (
 								<div
 									key={index}
-									className="group animate-on-scroll"
+									className="group animate-on-scroll border-b border-gray-200 pb-8 hover:border-blue-500 transition-colors duration-100"
 									data-id={`project-${index}`}
 									style={{
 										transform: animatedElements[`project-${index}`]
@@ -888,6 +872,21 @@ const Portfolio = () => {
 						transform: translateY(0);
 						opacity: 1;
 					}
+				}
+			`}</style>
+			{/* Add fadeIn animation in Menu*/}
+			<style jsx global>{`
+				@keyframes fadeIn {
+					from {
+						opacity: 0;
+					}
+					to {
+						opacity: 1;
+					}
+				}
+
+				.animate-fadeIn {
+					animation: fadeIn 0.3s forwards;
 				}
 			`}</style>
 		</div>
