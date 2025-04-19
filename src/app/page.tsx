@@ -221,22 +221,13 @@ const Portfolio = () => {
 			image: "/musicvisz.png",
 		},
 		{
-			title: "Collaborative Task Manager",
+			title: "Split-Mate - Group Expense Management",
 			description:
-				"A real-time collaborative task management application with team workspaces, custom task views, and progress analytics.",
-			technologies: ["React", "Node.js", "Socket.io", "MongoDB"],
-			github: "https://github.com/yourusername/task-manager",
-			live: "https://task-manager-demo.com",
-			image: "/sample.png",
-		},
-		{
-			title: "Developer Community Platform",
-			description:
-				"A platform for developers to share projects, ask questions, and connect with other developers. Features include user profiles, project showcases, and a discussion board.",
-			technologies: ["Next.js", "TypeScript", "Firebase", "Tailwind CSS"],
-			github: "https://github.com/yourusername/dev-community",
-			live: "https://dev-community-demo.com",
-			image: "/sample.png",
+				"A streamlined web application for managing expense splitting across social groups, featuring shared shopping lists, expense tracking, payment history, and automated expense reports.",
+			technologies: ["Next.js", "Supabase", "React", "Tailwind CSS", "TypeScript"],
+			github: "https://www.split-mate.com/",
+			live: "https://split-mate-mu.vercel.app/",
+			image: "/splitmate.png", // You'll need to add this image to your assets
 		},
 	];
 
