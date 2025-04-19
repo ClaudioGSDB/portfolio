@@ -116,6 +116,7 @@ const Portfolio = () => {
 			description:
 				"• Leading development of SPCB's flagship website using Next.js and Firebase.\n" +
 				"• Engineered full backend infrastructure with RESTful API operations, admin authentication, and dynamic routing.\n" +
+				"• Future-proofed the platform with a custom admin backend, enabling officers to update content without coding knowledge.\n" +
 				"• Established CI/CD workflows using GitHub Actions and led bi-weekly sprints for a 3-dev team.\n" +
 				"• Mentored two freshmen in full-stack fundamentals and software engineering basics.",
 			technologies: [
@@ -155,15 +156,38 @@ const Portfolio = () => {
 				"• Secured $34,000 per semester in funding through technical proposals to UF Student Government.\n" +
 				"• Drove a 216% increase in club membership (from 300 to 100) through enhanced digital engagement and promotional efforts.",
 			technologies: [
+				"Leadership",
 				"Public Speaking",
 				"Event Planning",
 				"Technical Proposals",
-				"Leadership",
 			],
 		},
 	];
 
 	const projects = [
+		{
+			title: "Project101 - AI-Powered Project Generator",
+			description:
+				"An AI-powered web application that helps users generate, design, and configure project ideas based on their experience, goals, and interests.",
+			technologies: [
+				"Next.js",
+				"Google Gemini API",
+				"Tailwind CSS",
+				"Firebase",
+				"React",
+			],
+			github: "https://github.com/ClaudioGSDB/project101",
+			live: "https://project101-nine.vercel.app/",
+			image: "/project101.png",
+		},
+		{
+			title: "Hudle.io - Custom Wordle-like Games Creator",
+			description: "A platform for creating and playing custom Wordle-like games.",
+			technologies: ["Next.js", "React", "Tailwind CSS", "Firebase", "TypeScript"],
+			github: "https://github.com/ClaudioGSDB/hudle.io",
+			live: "https://hudle-io.vercel.app/",
+			image: "/Hudle.png",
+		},
 		{
 			title: "Collaborative Task Manager",
 			description:
@@ -171,6 +195,7 @@ const Portfolio = () => {
 			technologies: ["React", "Node.js", "Socket.io", "MongoDB"],
 			github: "https://github.com/yourusername/task-manager",
 			live: "https://task-manager-demo.com",
+			image: "/sample.png",
 		},
 		{
 			title: "Developer Community Platform",
@@ -179,6 +204,7 @@ const Portfolio = () => {
 			technologies: ["Next.js", "TypeScript", "Firebase", "Tailwind CSS"],
 			github: "https://github.com/yourusername/dev-community",
 			live: "https://dev-community-demo.com",
+			image: "/sample.png",
 		},
 		{
 			title: "Personal Finance Dashboard",
@@ -187,6 +213,7 @@ const Portfolio = () => {
 			technologies: ["Vue.js", "Express", "PostgreSQL", "Chart.js"],
 			github: "https://github.com/yourusername/finance-dashboard",
 			live: "https://finance-dashboard-demo.com",
+			image: "/sample.png",
 		},
 	];
 
@@ -517,7 +544,10 @@ const Portfolio = () => {
 				</section>
 
 				{/* Experience section */}
-				<section id="experience" className="py-16 md:py-20 bg-white">
+				<section
+					id="experience"
+					className="py-16 md:py-20 bg-white border-t border-gray-200"
+				>
 					<div className="container mx-auto px-4 md:px-8 lg:px-16">
 						<h2
 							className="text-2xl font-bold text-gray-900 mb-8 animate-on-scroll"
@@ -602,7 +632,10 @@ const Portfolio = () => {
 				</section>
 
 				{/* Projects section */}
-				<section id="projects" className="py-16 md:py-20">
+				<section
+					id="projects"
+					className="py-16 md:py-10 border-t border-gray-200 bg-white"
+				>
 					<div className="container mx-auto px-4 md:px-8 lg:px-16">
 						<h2
 							className="text-2xl font-bold text-gray-900 mb-8 animate-on-scroll"
@@ -647,9 +680,11 @@ const Portfolio = () => {
 											}`}
 										>
 											<div className="overflow-hidden rounded-xl shadow-lg transition-all duration-300 group-hover:shadow-xl bg-gray-100">
-												<img
-													src={`/api/placeholder/800/450`}
+												<Image
+													src={project.image}
 													alt={project.title}
+													width={800}
+													height={450}
 													className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
 												/>
 											</div>
