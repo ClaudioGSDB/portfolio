@@ -17,6 +17,7 @@ import Image from "next/image";
 const Portfolio = () => {
 	const [menuOpen, setMenuOpen] = useState(false);
 	const [activeTab, setActiveTab] = useState("languages");
+	const [activeProjectTab, setActiveProjectTab] = useState("All");
 	const [animatedElements, setAnimatedElements] = useState<Record<string, boolean>>({});
 
 	useEffect(() => {
@@ -165,7 +166,17 @@ const Portfolio = () => {
 		},
 	];
 
-	const projects = [
+	type Project = {
+		title: string;
+		description: string;
+		technologies: string[];
+		github: string;
+		live: string;
+		image: string;
+		category: string;
+	};
+
+	const projects: Project[] = [
 		{
 			title: "SPCB - Society of PC Building Website",
 			description:
@@ -182,6 +193,7 @@ const Portfolio = () => {
 			github: "https://github.com/PCBuilding/SPCBWebsite",
 			live: "https://spcbatuf.org/",
 			image: "/spcb.png",
+			category: "Webapp",
 		},
 		{
 			title: "Project101 - AI-Powered Project Generator",
@@ -197,6 +209,7 @@ const Portfolio = () => {
 			github: "https://github.com/ClaudioGSDB/project101",
 			live: "https://project101-nine.vercel.app/",
 			image: "/project101.png",
+			category: "Webapp",
 		},
 		{
 			title: "Hudle.io - Custom Wordle-like Games Creator",
@@ -205,6 +218,7 @@ const Portfolio = () => {
 			github: "https://github.com/ClaudioGSDB/hudle.io",
 			live: "https://hudle-io.vercel.app/",
 			image: "/Hudle.png",
+			category: "Webapp",
 		},
 		{
 			title: "MusicVisz - Spotify Music Visualization (API Deprecated)",
@@ -220,6 +234,7 @@ const Portfolio = () => {
 			github: "https://github.com/ClaudioGSDB/spotifyVisz",
 			live: "https://musicvisz.vercel.app/",
 			image: "/musicvisz.png",
+			category: "Webapp",
 		},
 		{
 			title: "Split-Mate - Group Expense Management",
@@ -228,9 +243,51 @@ const Portfolio = () => {
 			technologies: ["Next.js", "Supabase", "React", "Tailwind CSS", "TypeScript"],
 			github: "https://www.split-mate.com/",
 			live: "https://split-mate-mu.vercel.app/",
-			image: "/splitmate.png", // You'll need to add this image to your assets
+			image: "/splitmate.png",
+			category: "Webapp",
 		},
+		// {
+		// 	title: "Space Invaders Clone - Java Game",
+		// 	description:
+		// 		"A classic Space Invaders game implemented in Java using JavaFX, featuring multi-level gameplay, scoring system, and smooth graphics.",
+		// 	technologies: [
+		// 		"Java",
+		// 		"JavaFX",
+		// 		"Object-Oriented Programming",
+		// 		"Game Development",
+		// 	],
+		// 	github: "https://github.com/ClaudioGSDB/SpaceInvadersClone",
+		// 	live: "", // If no live demo available
+		// 	image: "/space-invaders.png",
+		// 	category: "Games",
+		// },
+		// {
+		// 	title: "Concurrent Banking System",
+		// 	description:
+		// 		"A multi-threaded banking application demonstrating advanced Java concurrency techniques, including thread synchronization, locks, and thread-safe operations.",
+		// 	technologies: [
+		// 		"Java",
+		// 		"Multithreading",
+		// 		"Concurrency",
+		// 		"Synchronization",
+		// 		"Design Patterns",
+		// 	],
+		// 	github: "https://github.com/ClaudioGSDB/ConcurrentBankingSystem",
+		// 	live: "", // If no live demo available
+		// 	image: "/banking-system.png",
+		// 	category: "Java",
+		// },
 	];
+
+	const projectCategories = [
+		"All",
+		...new Set(projects.map((project) => project.category)),
+	];
+
+	const filteredProjects =
+		activeProjectTab === "All"
+			? projects
+			: projects.filter((project) => project.category === activeProjectTab);
 
 	return (
 		<div className="bg-white min-h-screen font-sans text-gray-800 relative overflow-hidden">
@@ -696,8 +753,35 @@ const Portfolio = () => {
 							Projects
 						</h2>
 
+						{/* Project Category Tabs */}
+						<div
+							className="mb-8 flex flex-wrap gap-2 justify-center animate-on-scroll"
+							data-id="project-tabs"
+							style={{
+								transform: animatedElements["project-tabs"]
+									? "translateY(0)"
+									: "translateY(20px)",
+								opacity: animatedElements["project-tabs"] ? 1 : 0,
+								transition: "all 0.6s ease-out 0.1s",
+							}}
+						>
+							{projectCategories.map((category) => (
+								<button
+									key={category}
+									onClick={() => setActiveProjectTab(category)}
+									className={`px-4 py-2 text-sm rounded-full transition-all duration-300 ${
+										activeProjectTab === category
+											? "bg-blue-500 text-white"
+											: "bg-gray-100 text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+									}`}
+								>
+									{category}
+								</button>
+							))}
+						</div>
+
 						<div className="grid grid-cols-1 gap-16">
-							{projects.map((project, index) => (
+							{filteredProjects.map((project, index) => (
 								<div
 									key={index}
 									className="group animate-on-scroll border-b border-gray-200 pb-8 hover:border-blue-500 transition-colors duration-100"
@@ -763,15 +847,17 @@ const Portfolio = () => {
 													<Github size={16} />
 													View Code
 												</a>
-												<a
-													href={project.live}
-													target="_blank"
-													rel="noopener noreferrer"
-													className="inline-flex items-center gap-1 text-gray-700 hover:text-green-500 font-medium transition-colors"
-												>
-													<ExternalLink size={16} />
-													Live Demo
-												</a>
+												{project.live && (
+													<a
+														href={project.live}
+														target="_blank"
+														rel="noopener noreferrer"
+														className="inline-flex items-center gap-1 text-gray-700 hover:text-green-500 font-medium transition-colors"
+													>
+														<ExternalLink size={16} />
+														Live Demo
+													</a>
+												)}
 											</div>
 										</div>
 									</div>
