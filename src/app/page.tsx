@@ -166,6 +166,23 @@ const Portfolio = () => {
 
 	const projects = [
 		{
+			title: "SPCB - Society of PC Building Website",
+			description:
+				"A responsive website for the Society of PC Building club at the University of Florida. Features include event calendar with multiple views, member counts, project showcases, and an admin dashboard for managing club content.",
+			technologies: [
+				"Next.js",
+				"TypeScript",
+				"React",
+				"Tailwind CSS",
+				"Firebase",
+				"Framer Motion",
+				"React Query",
+			],
+			github: "https://github.com/PCBuilding/SPCBWebsite",
+			live: "https://spcbatuf.org/",
+			image: "/spcb.png",
+		},
+		{
 			title: "Project101 - AI-Powered Project Generator",
 			description:
 				"An AI-powered web application that helps users generate, design, and configure project ideas based on their experience, goals, and interests.",
@@ -189,6 +206,21 @@ const Portfolio = () => {
 			image: "/Hudle.png",
 		},
 		{
+			title: "MusicVisz - Spotify Music Visualization (API Deprecated)",
+			description:
+				"An interactive visualization tool that creates a network graph of your top Spotify tracks, connecting songs based on audio feature similarity and providing detailed insights into your music taste.",
+			technologies: [
+				"React",
+				"TypeScript",
+				"D3.js",
+				"Spotify Web API",
+				"Styled Components",
+			],
+			github: "https://github.com/ClaudioGSDB/spotifyVisz",
+			live: "https://musicvisz.vercel.app/",
+			image: "/musicvisz.png",
+		},
+		{
 			title: "Collaborative Task Manager",
 			description:
 				"A real-time collaborative task management application with team workspaces, custom task views, and progress analytics.",
@@ -204,15 +236,6 @@ const Portfolio = () => {
 			technologies: ["Next.js", "TypeScript", "Firebase", "Tailwind CSS"],
 			github: "https://github.com/yourusername/dev-community",
 			live: "https://dev-community-demo.com",
-			image: "/sample.png",
-		},
-		{
-			title: "Personal Finance Dashboard",
-			description:
-				"A comprehensive dashboard for tracking personal finances, investments, and budget goals with customizable visualizations and financial insights.",
-			technologies: ["Vue.js", "Express", "PostgreSQL", "Chart.js"],
-			github: "https://github.com/yourusername/finance-dashboard",
-			live: "https://finance-dashboard-demo.com",
 			image: "/sample.png",
 		},
 	];
@@ -432,7 +455,7 @@ const Portfolio = () => {
 									target="_blank"
 									className="inline-flex items-center gap-2 px-6 py-3 bg-yellow-500 text-white rounded-full hover:bg-yellow-600 transition-colors font-medium hover:shadow-md"
 								>
-									CHECK OUT MY CV!
+									CHECK OUT MY RESUME!
 								</a>
 							</div>
 							<div
