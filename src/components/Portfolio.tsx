@@ -177,8 +177,8 @@ const Portfolio = () => {
 	return (
 		<div className="bg-white min-h-screen font-sans text-gray-800 relative overflow-hidden">
 			{/* Google-themed animated decorations */}
-			<div className="absolute top-20 right-10 w-16 h-16 rounded-full border-4 border-blue-500 opacity-70"></div>
-			<div className="absolute top-40 right-20 w-32 h-32 rounded-full border-4 border-red-500 opacity-70"></div>
+			<div className="md:absolute md:top-20 md:right-10 md:w-16 md:h-16 md:rounded-full md:border-4 md:border-blue-500 md:opacity-70"></div>
+			<div className="md:absolute md:top-40 md:right-20 md:w-32 md:h-32 md:rounded-full md:border-4 md:border-red-500 md:opacity-70"></div>
 
 			{/* Sidebar for larger screens */}
 			<aside className="hidden lg:block fixed left-0 top-0 bottom-0 w-64 bg-white shadow-md p-6 z-10 border-r border-gray-200">
@@ -377,7 +377,10 @@ const Portfolio = () => {
 			{/* Main content */}
 			<main className="lg:pl-64 relative">
 				{/* Hero/About section */}
-				<section id="about" className=" py-10 md:py-20 lg:py-20 relative">
+				<section
+					id="about"
+					className=" py-10 md:py-20 lg:py-20 relative lg:pb-48"
+				>
 					<div className="container mx-auto px-4 md:px-8 lg:px-16">
 						<div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 							<div
@@ -397,7 +400,7 @@ const Portfolio = () => {
 								<h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-3">
 									Claudio <span className="text-yellow-500">!</span>
 								</h1>
-								<p className="text-lg text-gray-600 uppercase tracking-wide mb-4">
+								<p className="text-lg uppercase tracking-wide mb-4 bg-gradient-to-r from-blue-600 via-green-500 to-purple-500 inline-block text-transparent bg-clip-text">
 									FULL-STACK DEVELOPER
 								</p>
 								<div className="prose prose-lg text-gray-700 my-6 max-w-2xl">
@@ -411,12 +414,13 @@ const Portfolio = () => {
 									</p>
 									<br></br>
 									<p>
-										My drive lies in crafting full-stack solutions
-										with React, Node.js, and modern cloud technologies
-										that actually matter to people. I'm obsessed with
-										the little details others might miss and deeply
-										committed to understanding the humans behind the
-										screens.
+										My drive lies in crafting meaningful full-stack
+										solutions with React, Node.js, and modern cloud
+										technologies that solve real-world problems. I'm
+										obsessed with the little details and I always take
+										an end-user first approach to development,
+										ensuring that every project delivers exceptional
+										value to everyone.
 									</p>
 								</div>
 								<a
@@ -427,6 +431,7 @@ const Portfolio = () => {
 									CHECK OUT MY RESUME!
 								</a>
 							</div>
+
 							<div
 								className="animate-on-scroll"
 								data-id="hero-image"
