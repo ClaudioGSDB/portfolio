@@ -405,7 +405,7 @@ const Portfolio = () => {
 								</p>
 								<div className="prose prose-lg text-gray-700 my-6 max-w-2xl">
 									<p>
-										I am a passionate full-stack developer with over 5
+										I am a passionate full-stack developer with over 3
 										years of experience in building web applications
 										that not only look good but also perform well. I
 										believe in writing clean, maintainable code and
