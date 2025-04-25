@@ -424,7 +424,7 @@ const Portfolio = () => {
 									</p>
 								</div>
 								<a
-									href="/Resume.pdf"
+									href="https://storage.googleapis.com/portfolio-cgsdb/Claudio%20Sciotto%20-%20Resume.pdf"
 									target="_blank"
 									className="inline-flex items-center gap-2 px-6 py-3 bg-yellow-500 text-white rounded-full hover:bg-yellow-600 transition-colors font-medium hover:shadow-md"
 								>
